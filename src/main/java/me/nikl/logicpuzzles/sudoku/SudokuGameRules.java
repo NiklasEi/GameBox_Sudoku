@@ -6,7 +6,7 @@ import me.nikl.gamebox.game.rules.GameRuleRewards;
 /**
  * Created by Niklas
  *
- * Game rules container for Whac a mole
+ * Game rules container for Sudoku
  */
 public class SudokuGameRules extends GameRuleRewards {
     private boolean restartButton;
