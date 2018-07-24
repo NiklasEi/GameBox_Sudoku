@@ -36,13 +36,13 @@ public class ThreeInARow extends Game {
     }
 
     private void loadItems() {
-        blueTile = loadItem("game.blueTile", "35:11");
-        whiteTile = loadItem("game.whiteTile", "35");
-        blueTileTip = loadItem("game.blueTileTip", "159:11");
-        whiteTileTip = loadItem("game.whiteTileTip", "159");
-        wrongHelpItem = loadItem("game.wrongHelpItem", "160:14");
-        correctHelpItem = loadItem("game.correctHelpItem", "160:13");
-        backGround = loadItem("game.backGround", "160:7");
+        blueTile = loadItem("game.blueTile", "wool:11");
+        whiteTile = loadItem("game.whiteTile", "wool");
+        blueTileTip = loadItem("game.blueTileTip", "stained_clay:11");
+        whiteTileTip = loadItem("game.whiteTileTip", "stained_clay");
+        wrongHelpItem = loadItem("game.wrongHelpItem", "stained_glass_pane:14");
+        correctHelpItem = loadItem("game.correctHelpItem", "stained_glass_pane:13");
+        backGround = loadItem("game.backGround", "stained_glass_pane:7");
     }
 
     private ItemStack loadItem(String path, String defaultMaterial) {

@@ -1,3 +1,6 @@
+### v 2.1.0
+- compatibility with minecraft 1.13
+
 ### v 2.0.2
 - fix problems loading puzzles with some operating systems
 - bump GameBox dependency to 2.1.4

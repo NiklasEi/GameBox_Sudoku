@@ -36,7 +36,8 @@ public class SudokuGame {
     private BitSet tips = new BitSet(81);
     private ItemStack resetButton;
     private String puzzle;
-    private long lastRestartClick = System.currentTimeMillis();
+    private long lastRestartClick = System.currentTimeMillis() - 100000;
+    private final int resetButtonSlot = 22;
 
     public SudokuGame(SudokuGameRules rule, Sudoku game, Player player, boolean playSounds, String puzzle, Map<Integer, ItemStack> cover, Map<Integer, ItemStack> tip, Map<Integer, ItemStack> number){
         this.game = game;
@@ -64,7 +65,7 @@ public class SudokuGame {
             meta.setDisplayName(lang.RESTART_NAME);
             meta.setLore(lang.RESTART_LORE);
             resetButton.setItemMeta(meta);
-            player.getInventory().setItem(22, resetButton);
+            player.getInventory().setItem(resetButtonSlot, resetButton);
         }
     }
 
@@ -86,6 +87,7 @@ public class SudokuGame {
     }
 
     private void buildStartingGrid() {
+        game.debug("building starting grid...");
         int x,y, valueInt;
         char value;
         ItemStack tip;
@@ -151,22 +153,17 @@ public class SudokuGame {
 
     public void onClick(InventoryClickEvent inventoryClickEvent) {
         if(inventoryClickEvent.getCurrentItem() == null) return;
-
         if(wasWon) return;
-
-        if(inventoryClickEvent.getRawSlot() > 81){
-            if(inventoryClickEvent.getCurrentItem().isSimilar(resetButton)){
-                long now = System.currentTimeMillis();
-
-                if(now - lastRestartClick > 1000){
-                    lastRestartClick = now;
-                } else {
-                    gridNumbers = new int[81];
-                    buildStartingGrid();
-                    if (playSounds) player.playSound(player.getLocation(), Sound.BURP.bukkitSound(), volume, pitch);
-
-                    lastRestartClick = now - 1000000;
-                }
+        if(inventoryClickEvent.getRawSlot() > 81 && inventoryClickEvent.getSlot() == resetButtonSlot){
+            long now = System.currentTimeMillis();
+            game.debug("reset click...");
+            if(now - lastRestartClick > 1000){
+                lastRestartClick = now;
+            } else {
+                gridNumbers = new int[81];
+                buildStartingGrid();
+                if (playSounds) player.playSound(player.getLocation(), Sound.BURP.bukkitSound(), volume, pitch);
+                lastRestartClick = now - 1000000;
             }
             return;
         }
