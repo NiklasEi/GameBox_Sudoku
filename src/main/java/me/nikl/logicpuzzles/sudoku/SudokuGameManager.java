@@ -87,25 +87,25 @@ public class SudokuGameManager implements GameManager {
         for (int i = 1; i < 10; i++){
             if(!game.getConfig().isConfigurationSection("items.grid." + i)){
                 Bukkit.getConsoleSender().sendMessage(lang.PREFIX + ChatColor.RED + " items.grid." + i + " section missing in config");
-                cover.put(i, new ItemStack(Material.STAINED_GLASS_PANE, 1));
-                tip.put(i, new ItemStack(Material.HARD_CLAY, i));
-                number.put(i, new ItemStack(Material.WOOL, i));
+                cover.put(i, new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE, 1));
+                tip.put(i, new ItemStack(Material.CLAY, i));
+                number.put(i, new ItemStack(Material.WHITE_WOOL, i));
                 continue;
             }
 
-            tipItem = ItemStackUtility.getItemStack(items.getString(i + "." + "tip" + ".materialData", "HARD_CLAY"));
-            coverItem = ItemStackUtility.getItemStack(items.getString(i + "." + "cover" + ".materialData", "STAINED_GLASS_PANE"));
-            numberItem = ItemStackUtility.getItemStack(items.getString(i + "." + "number" + ".materialData", "WOOL"));
+            tipItem = ItemStackUtility.getItemStack(items.getString(i + "." + "tip" + ".materialData", "CLAY"));
+            coverItem = ItemStackUtility.getItemStack(items.getString(i + "." + "cover" + ".materialData", "LIGHT_GRAY_STAINED_GLASS_PANE"));
+            numberItem = ItemStackUtility.getItemStack(items.getString(i + "." + "number" + ".materialData", "WHITE_WOOL"));
             if(tipItem == null){
-                tipItem = new ItemStack(Material.HARD_CLAY, 1);
+                tipItem = new ItemStack(Material.CLAY, 1);
                 game.warn(ChatColor.RED.toString() + i + "." + "tip" + ".materialData" + " not valid material");
             }
             if(coverItem == null){
-                coverItem = new ItemStack(Material.STAINED_GLASS_PANE, 1);
+                coverItem = new ItemStack(Material.LIGHT_GRAY_STAINED_GLASS_PANE, 1);
                 game.warn(ChatColor.RED.toString() + i + "." + "cover" + ".materialData" + " not valid material");
             }
             if(numberItem == null){
-                numberItem = new ItemStack(Material.WOOL, 1);
+                numberItem = new ItemStack(Material.WHITE_WOOL, 1);
                 game.warn(ChatColor.RED.toString() + i + "." + "number" + ".materialData" + " not valid material");
             }
             ItemMeta meta = tipItem.getItemMeta();

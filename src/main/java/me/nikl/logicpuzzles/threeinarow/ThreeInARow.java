@@ -6,6 +6,7 @@ import me.nikl.gamebox.game.GameSettings;
 import me.nikl.logicpuzzles.LogicPuzzles;
 import me.nikl.gamebox.utility.ItemStackUtility;
 import me.nikl.gamebox.utility.StringUtility;
+import org.bukkit.Material;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
@@ -36,13 +37,13 @@ public class ThreeInARow extends Game {
     }
 
     private void loadItems() {
-        blueTile = loadItem("game.blueTile", "wool:11");
-        whiteTile = loadItem("game.whiteTile", "wool");
-        blueTileTip = loadItem("game.blueTileTip", "stained_clay:11");
-        whiteTileTip = loadItem("game.whiteTileTip", "stained_clay");
-        wrongHelpItem = loadItem("game.wrongHelpItem", "stained_glass_pane:14");
-        correctHelpItem = loadItem("game.correctHelpItem", "stained_glass_pane:13");
-        backGround = loadItem("game.backGround", "stained_glass_pane:7");
+        blueTile = loadItem("game.blueTile", "BLUE_WOOL");
+        whiteTile = loadItem("game.whiteTile", "WHITE_WOOL");
+        blueTileTip = loadItem("game.blueTileTip", "BLUE_CONCRETE");
+        whiteTileTip = loadItem("game.whiteTileTip", "WHITE_CONCRETE");
+        wrongHelpItem = loadItem("game.wrongHelpItem", "ORANGE_STAINED_GLASS_PANE");
+        correctHelpItem = loadItem("game.correctHelpItem", "GREEN_STAINED_GLASS_PANE");
+        backGround = loadItem("game.backGround", "LIGHT_GRAY_STAINED_GLASS_PANE");
     }
 
     private ItemStack loadItem(String path, String defaultMaterial) {

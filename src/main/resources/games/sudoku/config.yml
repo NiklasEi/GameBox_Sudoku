@@ -26,7 +26,7 @@ langFile: "default"
 gameBox:
   mainButton:
     # define the Material and data for the button (format: 'material:data')
-    materialData: "wool:4"
+    materialData: "YELLOW_WOOL"
     # display name of the button
     displayName: "&3Sudoku"
     # lore of the button
@@ -35,7 +35,7 @@ gameBox:
     - "&1The famous logic game"
   gameButtons:
     saveStats:
-      materialData: "stained_clay:3"
+      materialData: "LIGHT_BLUE_CONCRETE"
       displayName: "&a&lSudoku"
       lore:
       - ""
@@ -58,7 +58,7 @@ gameBox:
     # use the same key as the game you want to display the top list for
     #   for that button 'saveStats' must be true (see above)
     saveStats:
-      materialData: "stained_clay:11"
+      materialData: "BLUE_CONCRETE"
       displayName: "&a&lTop list"
       lore:
       - ""
@@ -99,91 +99,91 @@ items:
   grid:
     '1':
       cover:
-        materialData: "stained_glass_pane:11"
+        materialData: "BLUE_STAINED_GLASS_PANE"
         displayName: "&1"
       tip:
-        materialData: "stained_clay:11"
+        materialData: "BLUE_CONCRETE"
         displayName: "&1&l&n%value%"
       number:
-        materialData: "wool:11"
+        materialData: "BLUE_WOOL"
         displayName: "&1%value%"
     '2':
       cover:
-        materialData: "stained_glass_pane"
+        materialData: "WHITE_STAINED_GLASS_PANE"
         displayName: "&f"
       tip:
-        materialData: "stained_clay"
+        materialData: "WHITE_CONCRETE"
         displayName: "&f&l&n%value%"
       number:
-        materialData: "wool"
+        materialData: "WHITE_WOOL"
         displayName: "&f%value%"
     '3':
       cover:
-        materialData: "stained_glass_pane:11"
+        materialData: "BLUE_STAINED_GLASS_PANE"
         displayName: "&1"
       tip:
-        materialData: "stained_clay:11"
+        materialData: "BLUE_CONCRETE"
         displayName: "&1&l&n%value%"
       number:
-        materialData: "wool:11"
+        materialData: "BLUE_WOOL"
         displayName: "&1%value%"
     '4':
       cover:
-        materialData: "stained_glass_pane"
+        materialData: "WHITE_STAINED_GLASS_PANE"
         displayName: "&f"
       tip:
-        materialData: "stained_clay"
+        materialData: "WHITE_CONCRETE"
         displayName: "&f&l&n%value%"
       number:
-        materialData: "wool"
+        materialData: "WHITE_WOOL"
         displayName: "&f%value%"
     '5':
       cover:
-        materialData: "stained_glass_pane:11"
+        materialData: "BLUE_STAINED_GLASS_PANE"
         displayName: "&1"
       tip:
-        materialData: "stained_clay:11"
+        materialData: "BLUE_CONCRETE"
         displayName: "&1&l&n%value%"
       number:
-        materialData: "wool:11"
+        materialData: "BLUE_WOOL"
         displayName: "&1%value%"
     '6':
       cover:
-        materialData: "stained_glass_pane"
+        materialData: "WHITE_STAINED_GLASS_PANE"
         displayName: "&f"
       tip:
-        materialData: "stained_clay"
+        materialData: "WHITE_CONCRETE"
         displayName: "&f&l&n%value%"
       number:
-        materialData: "wool"
+        materialData: "WHITE_WOOL"
         displayName: "&f%value%"
     '7':
       cover:
-        materialData: "stained_glass_pane:11"
+        materialData: "BLUE_STAINED_GLASS_PANE"
         displayName: "&1"
       tip:
-        materialData: "stained_clay:11"
+        materialData: "BLUE_CONCRETE"
         displayName: "&1&l&n%value%"
       number:
-        materialData: "wool:11"
+        materialData: "BLUE_WOOL"
         displayName: "&1%value%"
     '8':
       cover:
-        materialData: "stained_glass_pane"
+        materialData: "WHITE_STAINED_GLASS_PANE"
         displayName: "&f"
       tip:
-        materialData: "stained_clay"
+        materialData: "WHITE_CONCRETE"
         displayName: "&f&l&n%value%"
       number:
-        materialData: "wool"
+        materialData: "WHITE_WOOL"
         displayName: "&f%value%"
     '9':
       cover:
-        materialData: "stained_glass_pane:11"
+        materialData: "BLUE_STAINED_GLASS_PANE"
         displayName: "&1"
       tip:
-        materialData: "stained_clay:11"
+        materialData: "BLUE_CONCRETE"
         displayName: "&1&l&n%value%"
       number:
-        materialData: "wool:11"
+        materialData: "BLUE_WOOL"
         displayName: "&1%value%"
