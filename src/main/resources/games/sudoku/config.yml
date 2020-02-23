@@ -49,9 +49,6 @@ gameBox:
       cost: 20
       token: 1
       money: 30
-      # option for restart button
-      #   default is true
-      restartButton: true
       # if true the best score of this button is saved
       saveStats: true
   topListButtons:

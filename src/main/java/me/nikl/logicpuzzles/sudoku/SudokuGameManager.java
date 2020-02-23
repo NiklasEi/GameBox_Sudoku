@@ -189,10 +189,9 @@ public class SudokuGameManager implements GameManager {
     public void loadGameRules(ConfigurationSection buttonSec, String buttonID) {
         double cost = buttonSec.getDouble("cost", 0.);
         boolean saveStats = buttonSec.getBoolean("saveStats", false);
-        boolean restartButton = buttonSec.getBoolean("restartButton", true);
         int token = buttonSec.getInt("token", 0);
         int money = buttonSec.getInt("money", 0);
-        gameTypes.put(buttonID, new SudokuGameRules(buttonID, cost, money, token, restartButton, saveStats));
+        gameTypes.put(buttonID, new SudokuGameRules(buttonID, cost, money, token, saveStats));
     }
 
     @Override
@@ -218,6 +217,5 @@ public class SudokuGameManager implements GameManager {
         } else {
             winner.sendMessage((lang.PREFIX + lang.GAME_WON));
         }
-        game.onGameWon(winner, rule, 1);
     }
 }

@@ -3,7 +3,7 @@ package me.nikl.logicpuzzles.sudoku;
 import me.nikl.gamebox.GameBoxSettings;
 import me.nikl.gamebox.nms.NmsFactory;
 import me.nikl.gamebox.utility.Sound;
-import org.bukkit.Material;
+import me.nikl.logicpuzzles.ExtendedInventory;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.InventoryAction;
 import org.bukkit.event.inventory.InventoryClickEvent;
@@ -24,7 +24,8 @@ public class SudokuGame {
     private String ruleKey;
     private boolean playSounds, wasWon = false;
     private SudokuLanguage lang;
-    private Inventory inventory;
+    //private Inventory inventory;
+    private ExtendedInventory inventory;
     private Player player;
     private Sound won = Sound.VILLAGER_YES, click = Sound.CLICK;
     private float volume = 0.5f, pitch= 1f;
@@ -36,8 +37,6 @@ public class SudokuGame {
     private BitSet tips = new BitSet(81);
     private ItemStack resetButton;
     private String puzzle;
-    private long lastRestartClick = System.currentTimeMillis() - 100000;
-    private final int resetButtonSlot = 22;
 
     public SudokuGame(SudokuGameRules rule, Sudoku game, Player player, boolean playSounds, String puzzle, Map<Integer, ItemStack> cover, Map<Integer, ItemStack> tip, Map<Integer, ItemStack> number){
         this.game = game;
@@ -56,17 +55,10 @@ public class SudokuGame {
         if(GameBoxSettings.checkInventoryLength && title.length() > 32){
             title = "Title is too long!";
         }
-        this.inventory = game.createInventory(81, title);
+        Inventory upperInventory = game.createInventory(54, title);
+        this.inventory = new ExtendedInventory(upperInventory, player.getInventory());
         buildStartingGrid();
-        player.openInventory(inventory);
-        if(rule.hasRestartButton()) {
-            resetButton = new ItemStack(Material.LEVER);
-            ItemMeta meta = resetButton.getItemMeta();
-            meta.setDisplayName(lang.RESTART_NAME);
-            meta.setLore(lang.RESTART_LORE);
-            resetButton.setItemMeta(meta);
-            player.getInventory().setItem(resetButtonSlot, resetButton);
-        }
+        player.openInventory(upperInventory);
     }
 
     private void loadNumberTiles(Map<Integer, ItemStack> number) {
@@ -92,7 +84,7 @@ public class SudokuGame {
         char value;
         ItemStack tip;
         ItemMeta meta;
-        for(int slot = 0; slot < inventory.getSize(); slot++){
+        for(int slot = 0; slot < 81; slot++){
             x = (slot%9)/3 + 1;
             y = (slot/9)/3;
             value = puzzle.charAt(slot);
@@ -154,23 +146,10 @@ public class SudokuGame {
     public void onClick(InventoryClickEvent inventoryClickEvent) {
         if(inventoryClickEvent.getCurrentItem() == null) return;
         if(wasWon) return;
-        if(inventoryClickEvent.getRawSlot() > 81 && inventoryClickEvent.getSlot() == resetButtonSlot){
-            long now = System.currentTimeMillis();
-            game.debug("reset click...");
-            if(now - lastRestartClick > 1000){
-                lastRestartClick = now;
-            } else {
-                gridNumbers = new int[81];
-                buildStartingGrid();
-                if (playSounds) player.playSound(player.getLocation(), Sound.BURP.bukkitSound(), volume, pitch);
-                lastRestartClick = now - 1000000;
-            }
-            return;
-        }
 
-        int slot = inventoryClickEvent.getSlot();
+        int slot = inventoryClickEvent.getRawSlot();
 
-        // if the bit set is set for the slot it is a tip
+        // if the bit is set for the slot it is a tip
         if(tips.get(slot)) return;
 
         int x = (slot%9)/3;
