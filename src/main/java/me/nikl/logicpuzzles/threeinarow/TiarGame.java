@@ -70,9 +70,10 @@ public class TiarGame {
     }
 
     private void placeBackGround() {
-        for (int i = 0; i < 7; i++) {
-            extendedInventory.setItem(i, backGround);
-            extendedInventory.setItem(i*9, backGround);
+        extendedInventory.setItem(60, backGround);
+        for (int i = 0; i < 9; i++) {
+            extendedInventory.setItem(i + 63, backGround);
+            extendedInventory.setItem(i + 72, backGround);
             extendedInventory.setItem(i*9 + 8, backGround);
             extendedInventory.setItem(i*9 + 7, backGround);
         }

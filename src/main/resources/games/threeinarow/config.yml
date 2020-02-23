@@ -105,5 +105,5 @@ game:
     - "Blue: 3/3"
     - "White: 3/3"
   backGround:
-    materialData: "LIGHT_GRAY_STAINED_GLASS_PANE"
+    materialData: "GRAY_STAINED_GLASS_PANE"
     displayName: "&a"

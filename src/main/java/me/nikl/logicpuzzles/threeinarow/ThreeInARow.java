@@ -43,7 +43,7 @@ public class ThreeInARow extends Game {
         whiteTileTip = loadItem("game.whiteTileTip", "WHITE_CONCRETE");
         wrongHelpItem = loadItem("game.wrongHelpItem", "ORANGE_STAINED_GLASS_PANE");
         correctHelpItem = loadItem("game.correctHelpItem", "GREEN_STAINED_GLASS_PANE");
-        backGround = loadItem("game.backGround", "LIGHT_GRAY_STAINED_GLASS_PANE");
+        backGround = loadItem("game.backGround", "GRAY_STAINED_GLASS_PANE");
     }
 
     private ItemStack loadItem(String path, String defaultMaterial) {
