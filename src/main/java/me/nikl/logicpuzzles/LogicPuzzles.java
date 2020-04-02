@@ -1,35 +1,26 @@
 package me.nikl.logicpuzzles;
 
-import me.nikl.gamebox.GameBox;
-import me.nikl.gamebox.Module;
-import org.bukkit.Bukkit;
-import org.bukkit.plugin.Plugin;
-import org.bukkit.plugin.java.JavaPlugin;
+import me.nikl.gamebox.module.GameBoxModule;
+import me.nikl.logicpuzzles.sudoku.Sudoku;
+import me.nikl.logicpuzzles.threeinarow.ThreeInARow;
 
 /**
  * Created by Niklas
  *
  * Main class of the GameBox game Sudoku
  */
-public class LogicPuzzles extends JavaPlugin{
+public class LogicPuzzles extends GameBoxModule {
     public static final String SUDOKU = "sudoku";
     public static final String THREE_IN_A_ROW = "threeinarow";
-    private GameBox gameBox;
 
     @Override
     public void onEnable(){
-        Plugin plugin = Bukkit.getPluginManager().getPlugin("GameBox");
-        if(plugin == null || !plugin.isEnabled()){
-            getLogger().warning(" GameBox was not found! Disabling LogicPuzzles...");
-            Bukkit.getPluginManager().disablePlugin(this);
-            return;
-        }
-        gameBox = (GameBox) plugin;
-        new Module(gameBox, SUDOKU
-                , "me.nikl.logicpuzzles.sudoku.Sudoku"
-                , this, SUDOKU, "su");
-        new Module(gameBox, THREE_IN_A_ROW
-                , "me.nikl.logicpuzzles.threeinarow.ThreeInARow"
-                , this, THREE_IN_A_ROW, "tiar");
+        registerGame(SUDOKU, Sudoku.class, "su");
+        registerGame(THREE_IN_A_ROW, ThreeInARow.class, "tiar");
+    }
+
+    @Override
+    public void onDisable() {
+
     }
 }

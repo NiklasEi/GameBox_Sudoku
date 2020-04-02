@@ -52,9 +52,6 @@ public class SudokuGame {
 
         // create inventory
         String title = lang.GAME_TITLE.replace("%score%", String.valueOf(score));
-        if(GameBoxSettings.checkInventoryLength && title.length() > 32){
-            title = "Title is too long!";
-        }
         Inventory upperInventory = game.createInventory(54, title);
         this.inventory = new ExtendedInventory(upperInventory, player.getInventory());
         buildStartingGrid();
