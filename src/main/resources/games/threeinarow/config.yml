@@ -15,7 +15,7 @@ langFile: "default"
 gameBox:
   mainButton:
     # define the Material and data for the button (format: 'material:data')
-    materialData: "wool:11"
+    materialData: "BLUE_WOOL"
     # display name of the button
     displayName: "&3Three In A Row"
     # lore of the button
@@ -24,7 +24,7 @@ gameBox:
     - "&1Japanese logic game"
   gameButtons:
     saveStats:
-      materialData: "stained_clay:3"
+      materialData: "WHITE_CONCRETE"
       displayName: "&a&lThree In A Row"
       lore:
       - ""
@@ -48,7 +48,7 @@ gameBox:
     # use the same key as the game you want to display the top list for
     #   for that button 'saveStats' must be true (see above)
     saveStats:
-      materialData: "stained_clay:11"
+      materialData: "BLUE_CONCRETE"
       displayName: "&a&lTop list"
       lore:
       - ""
@@ -73,37 +73,37 @@ economy:
 
 game:
   blueTile:
-    materialData: "wool:11"
+    materialData: "BLUE_WOOL"
     displayName: "&1Blue tile"
   whiteTile:
-    materialData: "wool"
+    materialData: "WHITE_WOOL"
     displayName: "&rWhite tile"
   blueTileTip:
-    materialData: "stained_clay:11"
+    materialData: "BLUE_CONCRETE"
     displayName: "&1Blue tile"
     lore:
     - ""
     - "&cThis cannot be changed"
   whiteTileTip:
-    materialData: "stained_clay"
+    materialData: "WHITE_CONCRETE"
     displayName: "&rWhite tile"
     lore:
     - ""
     - "&cThis cannot be changed"
   wrongHelpItem:
-    materialData: "stained_glass_pane:14"
+    materialData: "ORANGE_STAINED_GLASS_PANE"
     displayName: "&4&lIncomplete:"
     lore:
     - ""
     - "Blue: %blue_count%/3"
     - "White: %white_count%/3"
   correctHelpItem:
-    materialData: "stained_glass_pane:13"
+    materialData: "GREEN_STAINED_GLASS_PANE"
     displayName: "&a&lComplete!"
     lore:
     - ""
     - "Blue: 3/3"
     - "White: 3/3"
   backGround:
-    materialData: "stained_glass_pane:7"
+    materialData: "GRAY_STAINED_GLASS_PANE"
     displayName: "&a"
